@@ -65,7 +65,10 @@ def get_database():
     filename = "output.json"
     with open(filename, "w") as f:
         json.dump(data, f, indent=4)
-    print(data["results"])
+    return data
+
+def update_database():
+    data = get_database()
     results = [extract_task_info(item) for item in data["results"]]
     for result in results:
         insert_into_database(result)
@@ -77,20 +80,27 @@ def create_notion_page(db_id):
     try:
         # Authenticate with your Notion API token
         client = notion_client.Client(auth=notion_api)
-
+        task = extract_task_info(properties)
         # Create the new page
+        data = get_database()
+        results = [extract_task_info(item) for item in data["results"]]
+        #Check for id conflict on Notion databases.
+        for result in results:
+            if result['id'] == task['id']:
+                print("page already exist")
+                exit()
         response = client.pages.create(
             parent={"type": "database_id", "database_id": db_id},
             properties=properties.get("properties", {})
         )
         print("Page created successfully.")
         #update database
-        result = extract_task_info(properties)
-        insert_into_database(result)
+        insert_into_database(task)
         return response
     except Exception as e:
         print(f"Error creating page: {e}")
         return None
+    
 if __name__ == '__main__':
     # get_database()
     create_notion_page(tasks_db_id)
