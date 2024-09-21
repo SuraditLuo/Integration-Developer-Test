@@ -24,14 +24,14 @@ def extract_task_info(data):
     properties = data.get("properties", {})
     for key, value in properties.items():
         if key == "ID":
-            info["id"] = f"{value["unique_id"]["prefix"]}-{value["unique_id"]["number"]}"
+            info["id"] = f"{value["unique_id"]["number"]}"
         elif key == "Task Name":
             info["task_name"] = value["title"][0]["plain_text"]
         elif key == "Status":
             info["status"] = value["status"]["name"]
         elif key == "Due Date":
             timestamp = datetime.datetime.strptime(value["date"]["start"],"%Y-%m-%dT%H:%M:%S.%f%z")
-            info["due_date"] = timestamp.strftime("%Y-%m-%d %H:%M:%S:%z")
+            info["due_date"] = timestamp.strftime("%Y-%m-%d %H:%M:%S%z")
     return info if info else None
 
 def insert_into_database(task):
@@ -67,8 +67,8 @@ def get_database():
         json.dump(data, f, indent=4)
     results = [extract_task_info(item) for item in data["results"]]
     for result in results:
-        # insert_into_database(result)
-        print(result)
+        insert_into_database(result)
+        # print(result)
 
 if __name__ == '__main__':
     get_database()
