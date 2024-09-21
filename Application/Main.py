@@ -18,6 +18,7 @@ headers = {
 
 def extract_task_info(data):
     info = {'id': None, 'task_name': "", 'status': None, 'due_date': datetime}
+
     properties = data.get("properties", {})
     for key, value in properties.items():
         if key == "ID":
@@ -31,14 +32,13 @@ def extract_task_info(data):
             info["due_date"] = timestamp.strftime("%Y-%m-%d %H:%M:%S%z")
     return info if info else None
 
-def insert_into_database(tasks):
-    delete = """
-        DELETE FROM public.task;
-    """
+def insert_into_database(task):
     sql = """
         INSERT INTO task (id, task_name, status, due_date)
-        VALUES (%s, %s, %s, %s);
+        VALUES (%s, %s, %s, %s)
+        ON CONFLICT (id) DO NOTHING;
     """
+    values = [task['id'], task['task_name'], task['status'], task['due_date']]
     conn = psycopg2.connect(
         dbname="notiondb",
         user="postgres",
@@ -47,10 +47,7 @@ def insert_into_database(tasks):
         port=postgres_port 
     )
     cursor = conn.cursor()
-    cursor.execute(delete)
-    for task in tasks:
-        values = [task['id'], task['task_name'], task['status'], task['due_date']]
-        cursor.execute(sql, values)
+    cursor.execute(sql, values)
     conn.commit()
     cursor.close()
     conn.close()
@@ -68,7 +65,9 @@ def get_database():
     with open(filename, "w") as f:
         json.dump(data, f, indent=4)
     results = [extract_task_info(item) for item in data["results"]]
-    insert_into_database(results)
+    for result in results:
+        insert_into_database(result)
+        # print(result)
 
 if __name__ == '__main__':
     get_database()
