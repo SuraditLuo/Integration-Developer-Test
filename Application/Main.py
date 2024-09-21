@@ -1,8 +1,6 @@
-import flask
 import requests
 from dotenv import load_dotenv
 import os
-import pandas as pd
 import json
 import datetime
 import psycopg2
