@@ -3,9 +3,9 @@
     "results": [
         {
             "object": "page",
-            "id": "107ac8ad-e086-8089-8be2-fe953b8d2f00",
-            "created_time": "2024-09-20T19:16:00.000Z",
-            "last_edited_time": "2024-09-20T19:20:00.000Z",
+            "id": "9735331c-c948-4672-89b0-f9a56b67fdef",
+            "created_time": "2024-09-21T04:30:00.000Z",
+            "last_edited_time": "2024-09-21T04:39:00.000Z",
             "created_by": {
                 "object": "user",
                 "id": "23d13b89-bb6b-4f26-8c70-9b357ae9d009"
@@ -18,88 +18,45 @@
             "icon": null,
             "parent": {
                 "type": "database_id",
-                "database_id": "107ac8ad-e086-806f-b7f4-fb01f4171846"
+                "database_id": "108ac8ad-e086-80b3-b89d-f7e41783aac0"
             },
             "archived": false,
             "in_trash": false,
             "properties": {
-                "Age": {
-                    "id": "E%60dI",
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "30",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "30",
-                            "href": null
-                        }
-                    ]
+                "Status": {
+                    "id": "%3Av%7Ca",
+                    "type": "status",
+                    "status": {
+                        "id": "3fc42cc4-8baf-4f6e-b7b5-7c9fa96cdd08",
+                        "name": "In progress",
+                        "color": "blue"
+                    }
                 },
-                "Gender": {
-                    "id": "ky%3B%3E",
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "Female",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "Female",
-                            "href": null
-                        }
-                    ]
+                "Due Date": {
+                    "id": "Oz~p",
+                    "type": "date",
+                    "date": {
+                        "start": "2024-10-09",
+                        "end": null,
+                        "time_zone": null
+                    }
                 },
-                "Occupation": {
-                    "id": "xu%3Dx",
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "Chef",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "Chef",
-                            "href": null
-                        }
-                    ]
+                "ID": {
+                    "id": "PC%3Aj",
+                    "type": "unique_id",
+                    "unique_id": {
+                        "prefix": "TSK",
+                        "number": 2
+                    }
                 },
-                "Name": {
+                "Task Name": {
                     "id": "title",
                     "type": "title",
                     "title": [
                         {
                             "type": "text",
                             "text": {
-                                "content": "Belle",
+                                "content": "Implement the 1st feature",
                                 "link": null
                             },
                             "annotations": {
@@ -110,20 +67,20 @@
                                 "code": false,
                                 "color": "default"
                             },
-                            "plain_text": "Belle",
+                            "plain_text": "Implement the 1st feature",
                             "href": null
                         }
                     ]
                 }
             },
-            "url": "https://www.notion.so/Belle-107ac8ade08680898be2fe953b8d2f00",
+            "url": "https://www.notion.so/Implement-the-1st-feature-9735331cc948467289b0f9a56b67fdef",
             "public_url": null
         },
         {
             "object": "page",
-            "id": "d05cf5d5-0da7-4890-91da-c2ca4d7d08fd",
-            "created_time": "2024-09-20T19:11:00.000Z",
-            "last_edited_time": "2024-09-20T19:19:00.000Z",
+            "id": "9bde5b84-df32-4d11-9461-e48eb509bcdf",
+            "created_time": "2024-09-21T04:30:00.000Z",
+            "last_edited_time": "2024-09-21T04:40:00.000Z",
             "created_by": {
                 "object": "user",
                 "id": "23d13b89-bb6b-4f26-8c70-9b357ae9d009"
@@ -136,88 +93,45 @@
             "icon": null,
             "parent": {
                 "type": "database_id",
-                "database_id": "107ac8ad-e086-806f-b7f4-fb01f4171846"
+                "database_id": "108ac8ad-e086-80b3-b89d-f7e41783aac0"
             },
             "archived": false,
             "in_trash": false,
             "properties": {
-                "Age": {
-                    "id": "E%60dI",
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "24",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "24",
-                            "href": null
-                        }
-                    ]
+                "Status": {
+                    "id": "%3Av%7Ca",
+                    "type": "status",
+                    "status": {
+                        "id": "7c1a10ba-1f28-4217-bed2-09ceb3833389",
+                        "name": "Not started",
+                        "color": "default"
+                    }
                 },
-                "Gender": {
-                    "id": "ky%3B%3E",
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "Female",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "Female",
-                            "href": null
-                        }
-                    ]
+                "Due Date": {
+                    "id": "Oz~p",
+                    "type": "date",
+                    "date": {
+                        "start": "2024-10-31",
+                        "end": null,
+                        "time_zone": null
+                    }
                 },
-                "Occupation": {
-                    "id": "xu%3Dx",
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "Accountant",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "Accountant",
-                            "href": null
-                        }
-                    ]
+                "ID": {
+                    "id": "PC%3Aj",
+                    "type": "unique_id",
+                    "unique_id": {
+                        "prefix": "TSK",
+                        "number": 3
+                    }
                 },
-                "Name": {
+                "Task Name": {
                     "id": "title",
                     "type": "title",
                     "title": [
                         {
                             "type": "text",
                             "text": {
-                                "content": "Jenifer",
+                                "content": "Verified the system",
                                 "link": null
                             },
                             "annotations": {
@@ -228,20 +142,20 @@
                                 "code": false,
                                 "color": "default"
                             },
-                            "plain_text": "Jenifer",
+                            "plain_text": "Verified the system",
                             "href": null
                         }
                     ]
                 }
             },
-            "url": "https://www.notion.so/Jenifer-d05cf5d50da7489091dac2ca4d7d08fd",
+            "url": "https://www.notion.so/Verified-the-system-9bde5b84df324d119461e48eb509bcdf",
             "public_url": null
         },
         {
             "object": "page",
-            "id": "2cdb4e6e-0cb0-40fb-ae9e-eda86a35cb57",
-            "created_time": "2024-09-20T14:21:00.000Z",
-            "last_edited_time": "2024-09-20T19:20:00.000Z",
+            "id": "b282e10e-284c-4cee-ac65-6b8e93f8a483",
+            "created_time": "2024-09-21T04:30:00.000Z",
+            "last_edited_time": "2024-09-21T04:46:00.000Z",
             "created_by": {
                 "object": "user",
                 "id": "23d13b89-bb6b-4f26-8c70-9b357ae9d009"
@@ -254,88 +168,45 @@
             "icon": null,
             "parent": {
                 "type": "database_id",
-                "database_id": "107ac8ad-e086-806f-b7f4-fb01f4171846"
+                "database_id": "108ac8ad-e086-80b3-b89d-f7e41783aac0"
             },
             "archived": false,
             "in_trash": false,
             "properties": {
-                "Age": {
-                    "id": "E%60dI",
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "10",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "10",
-                            "href": null
-                        }
-                    ]
+                "Status": {
+                    "id": "%3Av%7Ca",
+                    "type": "status",
+                    "status": {
+                        "id": "afa25b8a-bd19-4b6c-91d7-e3e26c164be4",
+                        "name": "Complete",
+                        "color": "green"
+                    }
                 },
-                "Gender": {
-                    "id": "ky%3B%3E",
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "Male",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "Male",
-                            "href": null
-                        }
-                    ]
+                "Due Date": {
+                    "id": "Oz~p",
+                    "type": "date",
+                    "date": {
+                        "start": "2024-09-27",
+                        "end": null,
+                        "time_zone": null
+                    }
                 },
-                "Occupation": {
-                    "id": "xu%3Dx",
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "Student",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "Student",
-                            "href": null
-                        }
-                    ]
+                "ID": {
+                    "id": "PC%3Aj",
+                    "type": "unique_id",
+                    "unique_id": {
+                        "prefix": "TSK",
+                        "number": 1
+                    }
                 },
-                "Name": {
+                "Task Name": {
                     "id": "title",
                     "type": "title",
                     "title": [
                         {
                             "type": "text",
                             "text": {
-                                "content": "Josh",
+                                "content": "Design System Architecture",
                                 "link": null
                             },
                             "annotations": {
@@ -346,249 +217,13 @@
                                 "code": false,
                                 "color": "default"
                             },
-                            "plain_text": "Josh",
+                            "plain_text": "Design System Architecture",
                             "href": null
                         }
                     ]
                 }
             },
-            "url": "https://www.notion.so/Josh-2cdb4e6e0cb040fbae9eeda86a35cb57",
-            "public_url": null
-        },
-        {
-            "object": "page",
-            "id": "824dc35f-659d-4643-b59e-838af899db8f",
-            "created_time": "2024-09-20T14:21:00.000Z",
-            "last_edited_time": "2024-09-20T19:20:00.000Z",
-            "created_by": {
-                "object": "user",
-                "id": "23d13b89-bb6b-4f26-8c70-9b357ae9d009"
-            },
-            "last_edited_by": {
-                "object": "user",
-                "id": "23d13b89-bb6b-4f26-8c70-9b357ae9d009"
-            },
-            "cover": null,
-            "icon": null,
-            "parent": {
-                "type": "database_id",
-                "database_id": "107ac8ad-e086-806f-b7f4-fb01f4171846"
-            },
-            "archived": false,
-            "in_trash": false,
-            "properties": {
-                "Age": {
-                    "id": "E%60dI",
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "36",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "36",
-                            "href": null
-                        }
-                    ]
-                },
-                "Gender": {
-                    "id": "ky%3B%3E",
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "Male",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "Male",
-                            "href": null
-                        }
-                    ]
-                },
-                "Occupation": {
-                    "id": "xu%3Dx",
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "Singer",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "Singer",
-                            "href": null
-                        }
-                    ]
-                },
-                "Name": {
-                    "id": "title",
-                    "type": "title",
-                    "title": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "Drake",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "Drake",
-                            "href": null
-                        }
-                    ]
-                }
-            },
-            "url": "https://www.notion.so/Drake-824dc35f659d4643b59e838af899db8f",
-            "public_url": null
-        },
-        {
-            "object": "page",
-            "id": "c4884578-a54b-4c56-9c04-d401070b8329",
-            "created_time": "2024-09-20T14:21:00.000Z",
-            "last_edited_time": "2024-09-20T19:20:00.000Z",
-            "created_by": {
-                "object": "user",
-                "id": "23d13b89-bb6b-4f26-8c70-9b357ae9d009"
-            },
-            "last_edited_by": {
-                "object": "user",
-                "id": "23d13b89-bb6b-4f26-8c70-9b357ae9d009"
-            },
-            "cover": null,
-            "icon": null,
-            "parent": {
-                "type": "database_id",
-                "database_id": "107ac8ad-e086-806f-b7f4-fb01f4171846"
-            },
-            "archived": false,
-            "in_trash": false,
-            "properties": {
-                "Age": {
-                    "id": "E%60dI",
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "42",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "42",
-                            "href": null
-                        }
-                    ]
-                },
-                "Gender": {
-                    "id": "ky%3B%3E",
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "Male",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "Male",
-                            "href": null
-                        }
-                    ]
-                },
-                "Occupation": {
-                    "id": "xu%3Dx",
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "Architecture",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "Architecture",
-                            "href": null
-                        }
-                    ]
-                },
-                "Name": {
-                    "id": "title",
-                    "type": "title",
-                    "title": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": "John",
-                                "link": null
-                            },
-                            "annotations": {
-                                "bold": false,
-                                "italic": false,
-                                "strikethrough": false,
-                                "underline": false,
-                                "code": false,
-                                "color": "default"
-                            },
-                            "plain_text": "John",
-                            "href": null
-                        }
-                    ]
-                }
-            },
-            "url": "https://www.notion.so/John-c4884578a54b4c569c04d401070b8329",
+            "url": "https://www.notion.so/Design-System-Architecture-b282e10e284c4ceeac656b8e93f8a483",
             "public_url": null
         }
     ],
@@ -596,5 +231,5 @@
     "has_more": false,
     "type": "page_or_database",
     "page_or_database": {},
-    "request_id": "d1dd2dbf-aac1-4eff-8d20-8134f8cd777a"
+    "request_id": "c948a118-c68c-4b24-8df0-1753799cc152"
 }
