@@ -5,7 +5,7 @@ import json
 import datetime
 import psycopg2
 import notion_client
-
+import traceback
 load_dotenv()
 
 database_id = os.getenv("NOTION_DATABASE_ID")
@@ -20,7 +20,7 @@ headers = {
 }
 
 def extract_task_info(data):
-    info = {id: None,'task_name': "", 'status': None, 'due_date': datetime}
+    info = {id: None,'task_name': "", 'status': None, 'due_date': datetime, 'updated_at': datetime}
     properties = data.get("properties", {})
     for key, value in properties.items():
         if key == "ID":
@@ -32,15 +32,19 @@ def extract_task_info(data):
         elif key == "Due Date":
             timestamp = datetime.datetime.strptime(value["date"]["start"],"%Y-%m-%dT%H:%M:%S.%f%z")
             info["due_date"] = timestamp.strftime("%Y-%m-%d %H:%M:%S%z")
+        elif key == "Updated At":
+            update_timestamp = datetime.datetime.strptime(value["date"]["start"],"%Y-%m-%dT%H:%M:%S.%f%z")
+            info["updated_at"] = update_timestamp.strftime("%Y-%m-%d %H:%M:%S%z")
+            
     return info if info else None
 
 def insert_into_database(task):
     sql = """
-        INSERT INTO tasks (id, task_name, status, due_date)
-        VALUES (%s, %s, %s, %s)
+        INSERT INTO tasks (id, task_name, status, due_date, updated_at)
+        VALUES (%s, %s, %s, %s, %s)
         ON CONFLICT (id) DO NOTHING;
     """
-    values = [task['id'], task['task_name'], task['status'], task['due_date']]
+    values = [task['id'], task['task_name'], task['status'], task['due_date'], task['updated_at']]
     conn = psycopg2.connect(
         dbname="notiondb",
         user="postgres",
@@ -62,6 +66,7 @@ def get_database():
     response = requests.post(url, json=payload, headers=headers)
 
     data = response.json()
+    #see database as JSON improve data visibility
     filename = "output.json"
     with open(filename, "w") as f:
         json.dump(data, f, indent=4)
@@ -81,6 +86,7 @@ def create_notion_page(db_id):
         # Authenticate with your Notion API token
         client = notion_client.Client(auth=notion_api)
         task = extract_task_info(properties)
+        print(task)
         # Create the new page
         data = get_database()
         results = [extract_task_info(item) for item in data["results"]]
@@ -98,6 +104,8 @@ def create_notion_page(db_id):
         insert_into_database(task)
         return response
     except Exception as e:
+        tb = traceback.extract_tb(e.__traceback__)[-1]
+        print(f"Error occurred on line {tb.lineno}")
         print(f"Error creating page: {e}")
         return None
     
@@ -107,6 +115,7 @@ if __name__ == '__main__':
     # data = get_database()
     # results = [extract_task_info(item) for item in data["results"]]
     # for result in results:
-    #   print("result")
+    #   insert_into_database(result)
+    #   print(result)
     
     create_notion_page(tasks_db_id)

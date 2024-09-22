@@ -41,6 +41,15 @@
                     "href": null
                 }
             ]
+        },
+        "Updated At": {
+            "id": "%60Clb",
+            "type": "date",
+            "date": {
+                "start": "2024-09-19T17:47:00.000+07:00",
+                "end": null,
+                "time_zone": null
+            }
         }
     }
 }
