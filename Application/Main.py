@@ -103,4 +103,10 @@ def create_notion_page(db_id):
     
 if __name__ == '__main__':
     # get_database()
+
+    # data = get_database()
+    # results = [extract_task_info(item) for item in data["results"]]
+    # for result in results:
+    #   print("result")
+    
     create_notion_page(tasks_db_id)
