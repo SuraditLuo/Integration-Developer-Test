@@ -13,6 +13,7 @@ tasks_db_id = os.getenv("NOTION_TASK_DATABASE_ID")
 notion_api = os.getenv("NOTION_KEY")
 postgres_port = os.getenv("POSTGRES_PORT")
 psql_password = os.getenv("POSTGRES_PASSWORD")
+page_id = os.getenv("NOTION_PAGE_TWO_ID")
 headers = {
     "Authorization": "Bearer " + notion_api,
     "Content-Type": "application/json",
@@ -58,6 +59,29 @@ def insert_into_database(task):
     cursor.close()
     conn.close()
 
+def update_task_name(task):
+    values = [task['task_name'], task['updated_at'], task['id']]
+    print(values)
+    sql = """
+        UPDATE tasks
+        SET 
+        task_name = %s,
+        updated_at = %s
+        WHERE id = %s;
+    """
+    conn = psycopg2.connect(
+        dbname="notiondb",
+        user="postgres",
+        password=psql_password,
+        host="localhost",
+        port=postgres_port 
+    )
+    cursor = conn.cursor()
+    cursor.execute(sql, values)
+    conn.commit()
+    cursor.close()
+    conn.close()
+
 def get_database():
     url = f"https://api.notion.com/v1/databases/{tasks_db_id}/query"
     page_size = 100
@@ -76,7 +100,7 @@ def update_database():
     data = get_database()
     results = [extract_task_info(item) for item in data["results"]]
     for result in results:
-        insert_into_database(result)
+        # insert_into_database(result)
         print(result)
 
 def create_notion_page(db_id):
@@ -108,14 +132,46 @@ def create_notion_page(db_id):
         print(f"Error occurred on line {tb.lineno}")
         print(f"Error creating page: {e}")
         return None
-    
+
+def update_notion_page(page_id: str):
+    now = datetime.datetime.now()
+    formatted_time = now.strftime("%Y-%m-%dT%H:%M:%S.%f+07:00")
+    try:
+        # Authenticate with your Notion API token
+        url = f"https://api.notion.com/v1/pages/{page_id}"
+        #Mock data
+        data = {
+                'properties':{
+                    'ID': {"type": "number", "number": 4}, 
+                    'Task Name': {"type": "title", "title": [{"type": "text","text": {"content": "Implement the 2nd feature"}, 'plain_text': "Implement the 2nd feature"}]}, 
+                    'Updated At': {"type": "date", "date": {"start": formatted_time, "end": None}}
+                    }
+                }
+        payload = {"properties": data.get("properties", {})}
+        res = requests.patch(url, json=payload, headers=headers)
+        print(res.status_code)
+        #update sql database
+        updated_data = extract_task_info(data)
+        update_task_name(updated_data)
+        return res
+        #update sql row 
+    except Exception as e:
+        tb = traceback.extract_tb(e.__traceback__)[-1]
+        print(f"Error occurred on line {tb.lineno}")
+        print(f"Error updating page: {e}")
+        return None
+
 if __name__ == '__main__':
     # get_database()
+
+    # update_database():
 
     # data = get_database()
     # results = [extract_task_info(item) for item in data["results"]]
     # for result in results:
     #   insert_into_database(result)
     #   print(result)
-    
-    create_notion_page(tasks_db_id)
+
+    # create_notion_page(tasks_db_id)
+
+    # update_notion_page(page_id)
