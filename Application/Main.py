@@ -100,7 +100,7 @@ def update_database():
     data = get_database()
     results = [extract_task_info(item) for item in data["results"]]
     for result in results:
-        # insert_into_database(result)
+        insert_into_database(result)
         print(result)
 
 def create_notion_page(db_id):
@@ -142,12 +142,14 @@ def update_notion_page(page_id: str):
         #Mock data
         data = {
                 'properties':{
-                    'ID': {"type": "number", "number": 4}, 
+                    'ID': {"type": "number", "number": 2}, 
                     'Task Name': {"type": "title", "title": [{"type": "text","text": {"content": "Implement the 2nd feature"}, 'plain_text': "Implement the 2nd feature"}]}, 
                     'Updated At': {"type": "date", "date": {"start": formatted_time, "end": None}}
                     }
                 }
-        payload = {"properties": data.get("properties", {})}
+        # Exclude the 'ID' property
+        new_data = {k: v for k, v in data['properties'].items() if k != 'ID'}
+        payload = {"properties": new_data}
         res = requests.patch(url, json=payload, headers=headers)
         print(res.status_code)
         #update sql database
@@ -164,14 +166,8 @@ def update_notion_page(page_id: str):
 if __name__ == '__main__':
     # get_database()
 
-    # update_database():
-
-    # data = get_database()
-    # results = [extract_task_info(item) for item in data["results"]]
-    # for result in results:
-    #   insert_into_database(result)
-    #   print(result)
+    # update_database()
 
     # create_notion_page(tasks_db_id)
 
-    # update_notion_page(page_id)
+    update_notion_page(page_id)
